@@ -61,7 +61,15 @@ def from_base10(n, b):
 print(from_base10(10, 2))
 print(from_base10(255, 16))
 
+def encode(digits, digit_map):
+    if max(digits) >= len(digit_map):
+        raise ValueError("digit_map is not long enough to encode the digits.")
+    # encoding = ''
+    # for d in digits:
+    #     encoding += digit_map[d]
+    # return encoding
+    return ''.join([digit_map[d] for d in digits])
 
 
-
+print(encode([15, 15], '0123456789ABCDEF'))
 
