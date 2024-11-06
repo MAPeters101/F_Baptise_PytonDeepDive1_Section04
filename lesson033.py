@@ -73,3 +73,31 @@ def encode(digits, digit_map):
 
 print(encode([15, 15], '0123456789ABCDEF'))
 
+def rebase_from10(number, base):
+    digit_map = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    if base < 2 or base > 36:
+        raise ValueError('Invalid base: 2 <= base <= 36')
+    sign = -1 if number < 0 else 1
+    number *= sign
+
+    digits = from_base10(number, base)
+    encoding = encode(digits, digit_map)
+    if sign == -1:
+        encoding = '-' + encoding
+    return encoding
+
+e = rebase_from10(10, 2)
+print(e)
+print(int(e, base=2))
+
+e = rebase_from10(-314, 2)
+print(e)
+print(int(e, base=2))
+
+e = rebase_from10(3451, 16)
+print(e)
+print(int(e, base=16))
+
+
+
+
