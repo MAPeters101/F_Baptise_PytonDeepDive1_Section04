@@ -37,6 +37,43 @@ print(y/x)
 print(b/a)
 print(round(x, 1) == round(y,1))
 print(round(a, 1) == round(b,1))
+print('-'*50)
+
+
+from math import isclose
+
+x = 0.1 + 0.1 + 0.1
+y = 0.3
+
+print(isclose(x, y))
+print(x == y)
+print('='*50)
+
+x = 123456789.01
+y = 123456789.02
+print(isclose(x, y, rel_tol=0.01))
 print()
+
+x = 0.01
+y = 0.02
+print(isclose(x, y, rel_tol=0.01))
+print()
+
+x = 0.0000001
+y = 0.0000002
+print(isclose(x, y, rel_tol=0.01))
+print(isclose(x, y, rel_tol=0.01, abs_tol=0.01))
+print()
+
+x = 0.0000001
+y = 0.0000002
+a = 123456789.01
+b = 123456789.02
+print(isclose(x, y, rel_tol=0.0001, abs_tol=0.01))
+print(isclose(a, b, rel_tol=0.0001, abs_tol=0.01))
+print()
+
+
+
 
 
